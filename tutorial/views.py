@@ -11,6 +11,7 @@ def jquery_ajax(request):
 	if request.method == 'POST':
 		print "DEAN"
 		print request.POST
+		return HttpResponse('dasdasdqwe')
 	template = 'extras/jquery_ajax_post_capture_name_value_pair.html'
 	context_dict = {}
 	return render(request, template, context_dict)

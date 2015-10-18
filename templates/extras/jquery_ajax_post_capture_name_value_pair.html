@@ -44,9 +44,9 @@
 				
 				var child = $(this);
         var parent = $(this).parent();
-        var parent_html = $(this).parent().html();
+        // var parent_html = $(this).parent().html();
         var parent_next = $(this).parent().next();
-        var parent_next_html = $(this).parent().next().html();
+        // var parent_next_html = $(this).parent().next().html();
 
         var json_name_val = {csrfmiddlewaretoken: csrfmiddlewaretoken};
 
@@ -61,7 +61,8 @@
         console.log(json_name_val);
 
         $.post(url, json_name_val, function(result){
-        	alert('dean');
+        	// alert('dean');
+        	parent_next.html(result);
         });
 			});
 			
