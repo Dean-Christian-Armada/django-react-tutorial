@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQUERY AJAX POST JSON CAPTURE NAME:VALUE Pair</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+	<body>
+		<form method="POST">
+			{# csrf_token #}
+			<p data-toggle="collapse" data-parent="#accordion" href="#mother" aria-expanded="false" style="margin-top: 20px; margin-bottom:0px; background: #02be9b; color: #fff; padding: 10px;"><strong>Mother</strong><button class="btn btn-primary update-mariner" style="margin-left: 20px;">UPDATE</button></p>
+	    <div id="mother" class="panel-collapse collapse" aria-expanded="false">   
+	      <div class="row panel-body">
+					<div class="col-md-4">
+					  <div class="input-group">
+					    <label class="input-group-addon input-label">Mother's Maiden Last Name:</label>
+					    <input type="text" class="form-control input form" id="id_mother_last_name" name="mother_last_name">
+						</div><!--End of Input Group-->
+	        </div><!--End of Col 4-->
+	        <div class="col-md-4">
+					  <div class="input-group">
+							<label class="input-group-addon input-label">Mother's First Name:</label>
+							<input type="text" class="form-control input form" id="id_mother_first_name" name="mother_first_name">
+						</div><!--End of Input Group-->
+	        </div><!--End of Col 4-->
+	        <div class="col-md-4">
+					  <div class="input-group">
+							<label class="input-group-addon input-label">Mother's Maiden Middle Name:</label>
+							<input type="text" class="form-control input form" id="id_mother_middle_name" name="mother_middle_name">
+						</div><!--End of Input Group-->
+					</div><!--End of Col 4-->
+	      </div><!--End of Row-->
+	    </div>
+	    <!-- <input type="submit"> -->
+    </form>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" /></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			var url = "{% url 'tutorial.views.jquery_ajax' %}";
+			var csrfmiddlewaretoken = "{{ csrf_token }}";
+
+			$("body").on("click", ".update-mariner", function(){
+				
+				var child = $(this);
+        var parent = $(this).parent();
+        var parent_html = $(this).parent().html();
+        var parent_next = $(this).parent().next();
+        var parent_next_html = $(this).parent().next().html();
+
+        var json_name_val = {csrfmiddlewaretoken: csrfmiddlewaretoken};
+
+        if(parent_next.hasClass('in')){
+        	parent_next.find('input').each(function(){
+        		name = $(this).attr('name');
+        		value = $(this).val();
+        		json_name_val[name] = value;
+        	});
+        }
+
+        console.log(json_name_val);
+
+        $.post(url, json_name_val, function(result){
+        	alert('dean');
+        });
+			});
+			
+		</script>
+	</body>
+</html>

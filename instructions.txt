@@ -1,0 +1,49 @@
+Create Models
+Create URLS
+Create Views
+
+Create Templates Folder
+
+Install DjangoRestFramework
+	- pip install djangorestframework
+
+Create Serializers
+Create GenericViews
+Create API URLpatterns
+	- use format_suffix_patterns
+
+
+
+/* Optional
+Install NPM
+	- go to https://nodejs.org/en/
+
+Install Bower
+	- sudo npm install -g bower
+	- https://www.youtube.com/watch?v=nX9EJCc_5vA
+	- bower search react
+		-- searches react package
+
+Install DjangoBower
+	- http://django-bower.readthedocs.org/en/latest/installation.html
+	- imitate settings.py
+		-- BOWER_COMPONENTS_ROOT
+		-- BOWER_INSTALLED_APPS
+		-- INSTALLED_APPS
+		-- STATIC_ROOT
+		-- STATICFILES_FINDERS
+	- ./manage.py bower install
+	- ./manage.py collectstatic
+*/
+
+
+
+External files of react
+	- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+	- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+
+USE Gulp to enhance project structure management (MINIMIZES CSS, JS, IMAGES)
+	- create build folder in static
+	- install gulp using npm
+	- create gulpfile.js
